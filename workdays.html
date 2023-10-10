@@ -1,0 +1,86 @@
+
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Work days</title>
+	
+	<style> 
+	p 
+	{
+		text-align: center;
+		font-size: 60px;
+		margin-top: 0px;
+	}
+	</style>
+
+</head>
+
+<body>
+    <!-- Display the countdown timer in an element -->
+    <p id="workdays"></p>   
+
+<script>
+// Set the date we're counting down to
+var now = new Date();
+
+const remaining_work_days = 
+[
+    new Date(2023,12,1),    
+    new Date(2023,11,30), 
+    new Date(2023,11,29),
+    new Date(2023,11,28),
+    new Date(2023,11,27),
+    new Date(2023,11,22),
+    new Date(2023,11,21),
+    new Date(2023,11,20),
+    new Date(2023,11,17),
+    new Date(2023,11,16),
+    new Date(2023,11,15),
+    new Date(2023,11,14),
+    new Date(2023,11,13),
+    new Date(2023,11,10),
+    new Date(2023,11,9),
+    new Date(2023,11,8),
+    new Date(2023,11,7),
+    new Date(2023,11,6),
+    new Date(2023,11,3),
+    new Date(2023,11,2),
+    new Date(2023,11,1),
+    new Date(2023,10,31),
+    new Date(2023,10,30),
+    new Date(2023,10,27),
+    new Date(2023,10,26),
+    new Date(2023,10,25),
+    new Date(2023,10,24),
+    new Date(2023,10,23),
+    new Date(2023,10,20),
+    new Date(2023,10,19),
+    new Date(2023,10,18),   
+    new Date(2023,10,17),   
+    new Date(2023,10,16),   
+    new Date(2023,10,13),   
+    new Date(2023,10,12),   
+    new Date(2023,10,11)  
+]; 
+var remaining;
+
+// Update the count down every 1 second
+var x = setInterval(function() {
+
+  // count dates in future in array
+  remaining = 0;
+  remaining_work_days.forEach(item => 
+    {if (now < item) 
+        {remaining++;} 
+    })
+
+  // Display the result 
+  document.getElementById("workdays").innerHTML = remaining + " remaining work days ";
+
+}, 5000);
+</script>
+</body>
+
+</html>
