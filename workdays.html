@@ -19,7 +19,9 @@
 
 <body>
     <!-- Display the countdown timer in an element -->
+
     <p id="workdays"></p>   
+    <p id="today"></p>   
 
 <script>
 // Set the date we're counting down to
@@ -75,7 +77,8 @@ var x = setInterval(function() {
     })
 
   // Display the result 
-  document.getElementById("workdays").innerHTML = remaining + " remaining work days ";
+  document.getElementById("workdays").innerHTML = remaining + " remaining work days ";  
+  document.getElementById("today").innerHTML = " today is " + now;
 
 }, 1000);
 </script>
