@@ -33,39 +33,40 @@ const remaining_work_days =
     new Date(2023,10,29),
     new Date(2023,10,28),
     new Date(2023,10,27),
+
     new Date(2023,10,21),
     new Date(2023,10,20),
-    new Date(2023,10,17),
+
     new Date(2023,10,16),
     new Date(2023,10,15),
     new Date(2023,10,14),
     new Date(2023,10,13),
-    new Date(2023,10,10),
+
     new Date(2023,10,9),
     new Date(2023,10,8),
     new Date(2023,10,7),
     new Date(2023,10,6),
-    new Date(2023,10,3),
+    
     new Date(2023,10,2),
     new Date(2023,10,1),
     new Date(2023,9,31),
     new Date(2023,9,30),
-    new Date(2023,9,27),
+    
     new Date(2023,9,26),
     new Date(2023,9,25),
     new Date(2023,9,24),
     new Date(2023,9,23),
-    new Date(2023,9,20),
+    
     new Date(2023,9,19),
     new Date(2023,9,18),   
     new Date(2023,9,17),   
-    new Date(2023,9,16),   
-    new Date(2023,9,13),   
+    new Date(2023,9,16),  
+
     new Date(2023,9,12),   
     new Date(2023,9,11)  
 ]; 
 var remaining;
-var log_once = true;
+
 
 // Update the count down every 1 second
 var x = setInterval(function() {
@@ -77,18 +78,14 @@ var x = setInterval(function() {
       if (now < item) 
       {
         remaining++;
-        if (log_once)
-        console.log(item + " is later than today")
       } 
     })
 
-    log_once = false;
-
   // Display the result 
   document.getElementById("workdays").innerHTML = remaining + " remaining work days ";  
-  document.getElementById("today").innerHTML = " today is " + now;
+  //document.getElementById("today").innerHTML = " today is " + now;
 
-}, 10000);
+}, 1000);
 </script>
 </body>
 
