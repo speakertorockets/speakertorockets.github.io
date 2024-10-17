@@ -1,0 +1,87 @@
+
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Countdown</title>
+	
+	<style> 
+	p 
+	{
+		text-align: center;
+		font-size: 60px;
+		margin-top: 0px;
+	}
+	</style>
+
+</head>
+
+<body>
+    <!-- Display the countdown timer in an element -->
+    <p id="days"></p>   
+    <p id="hours"></p>    
+    <p id="minutes"></p>
+    <p id="seconds"></p>
+
+<script>
+// Set the date we're counting down to
+//var countDownDate = new Date("Dec 01 2023 05:30 PM").getTime();
+var countDownDate = new Date("Oct 14 2024 00:44 AM").getTime();
+
+// Update the count down every 1 second
+var x = setInterval(function() {
+
+  // Get todays date and time
+  var now = new Date().getTime();
+
+  // Find the age between now an the count down date
+  var age = now - countDownDate;
+
+  // Time calculations for days, hours, minutes and seconds
+  var years = Math.floor(age / (1000 * 60 * 60 * 24 * 365));
+  var days = Math.floor(age % (1000 * 60 * 60 * 24 * 365) / (1000 * 60 * 60 * 24));
+  var hours = Math.floor((age % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  var minutes = Math.floor((age % (1000 * 60 * 60)) / (1000 * 60));
+  var seconds = Math.floor((age % (1000 * 60)) / 1000);
+
+  // Display the result in the element with id="demo"
+  document.getElementById("days").innerHTML = days + " d ";
+  document.getElementById("hours").innerHTML = hours + " h ";
+  document.getElementById("minutes").innerHTML = minutes + " m ";
+  document.getElementById("seconds").innerHTML = seconds + " s ";
+
+}, 1000);
+
+//const dateToHumanize = new Date('2024-10-15T00:00:00Z'); // Example date
+const dateToHumanize = new Date('2024-10-14T00:44:00Z'); // laurel's birthday
+
+function humanizeDate(date) {
+  const rtf = new Intl.RelativeTimeFormat('en', { numeric: 'auto' });
+
+  const now = new Date();
+  const diff = date.getTime() - now.getTime();
+  const diffInSeconds = Math.round(diff / 1000);
+
+  if (diffInSeconds < 60) {
+    return rtf.format(diffInSeconds, 'second');
+  } else if (diffInSeconds < 3600) {
+    return rtf.format(Math.round(diffInSeconds / 60), 'minute');
+  } else if (diffInSeconds < 86400) {
+    return rtf.format(Math.round(diffInSeconds / 3600), 'hour');
+  } else if (diffInSeconds < 2592000) { // 30 days
+    return rtf.format(Math.round(diffInSeconds / 86400), 'day');
+  } else if (diffInSeconds < 31536000) { // 12 months
+    return rtf.format(Math.round(diffInSeconds / 2592000), 'month');
+  } else {
+    return rtf.format(Math.round(diffInSeconds / 31536000), 'year');
+  }
+}
+
+const humanizedDate = humanizeDate(dateToHumanize);
+console.log(dateToHumanize);
+console.log(humanizedDate); // Output: "yesterday"
+</script>
+</body>
+
+</html>
