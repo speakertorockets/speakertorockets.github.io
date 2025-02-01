@@ -26,6 +26,7 @@
 
 <body>
     <!-- Display the countdown timer in an element -->
+    <p id = "weeks"></p>
     <p id="days"></p>   
     <p id="hours"></p>    
     <p id="minutes"></p>
@@ -48,11 +49,13 @@ var x = setInterval(function() {
   // Time calculations for days, hours, minutes and seconds
   var years = Math.floor(age / (1000 * 60 * 60 * 24 * 365));
   var days = Math.floor(age % (1000 * 60 * 60 * 24 * 365) / (1000 * 60 * 60 * 24));
+  var weeks = Math.floor(days % 7);
   var hours = Math.floor((age % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
   var minutes = Math.floor((age % (1000 * 60 * 60)) / (1000 * 60));
   var seconds = Math.floor((age % (1000 * 60)) / 1000);
 
   // Display the result in the element with id="demo"
+  document.getElementById("weeks").innerHTML = weeks + " w ";
   document.getElementById("days").innerHTML = days + " d ";
   document.getElementById("hours").innerHTML = hours + " h ";
   document.getElementById("minutes").innerHTML = minutes + " m ";
